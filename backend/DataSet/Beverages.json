@@ -1,0 +1,139 @@
+
+   { "Masala Chai": {
+      "per_100ml": {
+        "calories": 30,
+        "fat": 1.5,
+        "protein": 1,
+        "carbohydrates": 5
+      }
+    },
+    "Lassi": {
+      "per_100ml": {
+        "calories": 60,
+        "fat": 2,
+        "protein": 2,
+        "carbohydrates": 8
+      }
+    },
+    "Thandai": {
+      "per_100ml": {
+        "calories": 70,
+        "fat": 3,
+        "protein": 2,
+        "carbohydrates": 8
+      }
+    },
+    "Buttermilk": {
+      "per_100ml": {
+        "calories": 30,
+        "fat": 0.5,
+        "protein": 1,
+        "carbohydrates": 4
+      }
+    },
+    "Jaljeera": {
+      "per_100ml": {
+        "calories": 20,
+        "fat": 0,
+        "protein": 0,
+        "carbohydrates": 5
+      }
+    },
+    "Chaas": {
+      "per_100ml": {
+        "calories": 25,
+        "fat": 1,
+        "protein": 1,
+        "carbohydrates": 3
+      }
+    },
+    "Nimbu Pani": {
+      "per_100ml": {
+        "calories": 15,
+        "fat": 0,
+        "protein": 0,
+        "carbohydrates": 4
+      }
+    },
+    "Kokum Sherbet": {
+      "per_100ml": {
+        "calories": 40,
+        "fat": 0,
+        "protein": 0,
+        "carbohydrates": 10
+      }
+    },
+    "Rooibos Tea": {
+      "per_100ml": {
+        "calories": 5,
+        "fat": 0,
+        "protein": 0,
+        "carbohydrates": 1
+      }
+    },
+    "Rose Milk": {
+      "per_100ml": {
+        "calories": 90,
+        "fat": 4,
+        "protein": 2,
+        "carbohydrates": 12
+      }
+    },
+    "Chai Latte": {
+      "per_100ml": {
+        "calories": 50,
+        "fat": 2,
+        "protein": 1,
+        "carbohydrates": 7
+      }
+    },
+    "Masala Lemonade": {
+      "per_100ml": {
+        "calories": 25,
+        "fat": 0,
+        "protein": 0,
+        "carbohydrates": 6
+      }
+    },
+    "Aam Panna": {
+      "per_100ml": {
+        "calories": 55,
+        "fat": 0,
+        "protein": 0,
+        "carbohydrates": 14
+      }
+    },
+    "Basil Seed Drink": {
+      "per_100ml": {
+        "calories": 40,
+        "fat": 1,
+        "protein": 1,
+        "carbohydrates": 7
+      }
+    },
+    "Sattu Sharbat": {
+      "per_100ml": {
+        "calories": 70,
+        "fat": 2,
+        "protein": 3,
+        "carbohydrates": 12
+      }
+    },
+    "Kesar Milk": {
+      "per_100ml": {
+        "calories": 80,
+        "fat": 4,
+        "protein": 3,
+        "carbohydrates": 10
+      }
+    },
+    "Sharbat-e-Tukhm-e-Meloni": {
+      "per_100ml": {
+        "calories": 45,
+        "fat": 1,
+        "protein": 1,
+        "carbohydrates": 8
+      }
+    }
+  }
+

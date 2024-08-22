@@ -1,0 +1,254 @@
+{
+  "Gulab Jamun": {
+    "serving_size": "1 piece",
+    "nutritional_info": {
+      "calories": 150,
+      "fat": 7.5,
+      "protein": 3,
+      "carbohydrates": 22.5
+    }
+  },
+  "Jalebi": {
+    "serving_size": "1 piece",
+    "nutritional_info": {
+      "calories": 80,
+      "fat": 4,
+      "protein": 0.8,
+      "carbohydrates": 12
+    }
+  },
+  "Rasgulla": {
+    "serving_size": "1 piece",
+    "nutritional_info": {
+      "calories": 70,
+      "fat": 0.5,
+      "protein": 2.5,
+      "carbohydrates": 17
+    }
+  },
+  "Barfi": {
+    "serving_size": "1 piece",
+    "nutritional_info": {
+      "calories": 160,
+      "fat": 9,
+      "protein": 4,
+      "carbohydrates": 20
+    }
+  },
+  "Kaju Katli": {
+    "serving_size": "1 piece",
+    "nutritional_info": {
+      "calories": 175,
+      "fat": 10,
+      "protein": 4,
+      "carbohydrates": 15
+    }
+  },
+  "Ladoo": {
+    "serving_size": "1 piece",
+    "nutritional_info": {
+      "calories": 95,
+      "fat": 5,
+      "protein": 2,
+      "carbohydrates": 11
+    }
+  },
+  "Peda": {
+    "serving_size": "1 piece",
+    "nutritional_info": {
+      "calories": 80,
+      "fat": 4,
+      "protein": 2,
+      "carbohydrates": 10
+    }
+  },
+  "Ras Malai": {
+    "serving_size": "1 piece",
+    "nutritional_info": {
+      "calories": 75,
+      "fat": 3,
+      "protein": 2,
+      "carbohydrates": 10
+    }
+  },
+  "Chum Chum": {
+    "serving_size": "1 piece",
+    "nutritional_info": {
+      "calories": 90,
+      "fat": 3.5,
+      "protein": 2,
+      "carbohydrates": 15
+    }
+  },
+  "Kalakand": {
+    "serving_size": "1 piece",
+    "nutritional_info": {
+      "calories": 90,
+      "fat": 4.5,
+      "protein": 4,
+      "carbohydrates": 15
+    }
+  },
+  "Sooji Halwa": {
+    "serving_size": "1 piece",
+    "nutritional_info": {
+      "calories": 65,
+      "fat": 3.5,
+      "protein": 1.5,
+      "carbohydrates": 8
+    }
+  },
+  "Gajar Ka Halwa": {
+    "serving_size": "1 piece",
+    "nutritional_info": {
+      "calories": 70,
+      "fat": 3,
+      "protein": 1,
+      "carbohydrates": 10
+    }
+  },
+  "Mysore Pak": {
+    "serving_size": "1 piece",
+    "nutritional_info": {
+      "calories": 120,
+      "fat": 8,
+      "protein": 2,
+      "carbohydrates": 12
+    }
+  },
+  "Jangri": {
+    "serving_size": "1 piece",
+    "nutritional_info": {
+      "calories": 100,
+      "fat": 5,
+      "protein": 2,
+      "carbohydrates": 15
+    }
+  },
+  "Dhokla": {
+    "serving_size": "1 piece",
+    "nutritional_info": {
+      "calories": 40,
+      "fat": 1,
+      "protein": 2,
+      "carbohydrates": 6
+    }
+  },
+  "Puran Poli": {
+    "serving_size": "1 piece",
+    "nutritional_info": {
+      "calories": 170,
+      "fat": 6,
+      "protein": 3,
+      "carbohydrates": 27.5
+    }
+  },
+  "Khoya": {
+    "serving_size": "30g",
+    "nutritional_info": {
+      "calories": 90,
+      "fat": 5.4,
+      "protein": 3,
+      "carbohydrates": 9
+    }
+  },
+  "Kheer": {
+    "serving_size": "1 serving",
+    "nutritional_info": {
+      "calories": 75,
+      "fat": 2.5,
+      "protein": 2,
+      "carbohydrates": 10
+    }
+  },
+  "Rawa Laddu": {
+    "serving_size": "1 piece",
+    "nutritional_info": {
+      "calories": 110,
+      "fat": 6,
+      "protein": 3,
+      "carbohydrates": 15
+    }
+  },
+  "Sandesh": {
+    "serving_size": "1 piece",
+    "nutritional_info": {
+      "calories": 70,
+      "fat": 3,
+      "protein": 3,
+      "carbohydrates": 8
+    }
+  },
+  "Mishti Doi": {
+    "serving_size": "1 serving",
+    "nutritional_info": {
+      "calories": 90,
+      "fat": 2.5,
+      "protein": 3,
+      "carbohydrates": 12
+    }
+  },
+  "Basundi": {
+    "serving_size": "1 serving",
+    "nutritional_info": {
+      "calories": 75,
+      "fat": 3.5,
+      "protein": 2,
+      "carbohydrates": 8
+    }
+  },
+  "Kokum Kadi": {
+    "serving_size": "1 serving",
+    "nutritional_info": {
+      "calories": 50,
+      "fat": 1,
+      "protein": 2,
+      "carbohydrates": 8
+    }
+  },
+  "Patisa": {
+    "serving_size": "1 piece",
+    "nutritional_info": {
+      "calories": 175,
+      "fat": 10,
+      "protein": 4,
+      "carbohydrates": 22.5
+    }
+  },
+  "Rajbhog": {
+    "serving_size": "1 piece",
+    "nutritional_info": {
+      "calories": 90,
+      "fat": 4,
+      "protein": 4,
+      "carbohydrates": 12
+    }
+  },
+  "Kesar Peda": {
+    "serving_size": "1 piece",
+    "nutritional_info": {
+      "calories": 80,
+      "fat": 4,
+      "protein": 2,
+      "carbohydrates": 10
+    }
+  },
+  "Ghevar": {
+    "serving_size": "1 piece",
+    "nutritional_info": {
+      "calories": 120,
+      "fat": 7.5,
+      "protein": 2,
+      "carbohydrates": 15
+    }
+  },
+  "Tiranga Barfi": {
+    "serving_size": "1 piece",
+    "nutritional_info": {
+      "calories": 80,
+      "fat": 4,
+      "protein": 2,
+      "carbohydrates": 10
+    }
+  }
+}

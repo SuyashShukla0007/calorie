@@ -1,0 +1,158 @@
+{
+  "Butter Chicken": {
+    "calories": 250,
+    "fat": 18,
+    "protein": 12,
+    "carbohydrates": 8
+  },
+  "Paneer Tikka": {
+    "calories": 265,
+    "fat": 21,
+    "protein": 14,
+    "carbohydrates": 5
+  },
+  "Biryani": {
+    "calories": 290,
+    "fat": 8,
+    "protein": 15,
+    "carbohydrates": 35
+  },
+  "Dal Makhani": {
+    "calories": 110,
+    "fat": 4,
+    "protein": 7,
+    "carbohydrates": 12
+  },
+  "Samosa": {
+    "calories": 308,
+    "fat": 17,
+    "protein": 6,
+    "carbohydrates": 32
+  },
+  "Palak Paneer": {
+    "calories": 150,
+    "fat": 10,
+    "protein": 11,
+    "carbohydrates": 8
+  },
+  "Chole Bhature": {
+    "calories": 290,
+    "fat": 14,
+    "protein": 7,
+    "carbohydrates": 35
+  },
+  "Aloo Gobi": {
+    "calories": 120,
+    "fat": 6,
+    "protein": 3,
+    "carbohydrates": 15
+  },
+  "Rogan Josh": {
+    "calories": 210,
+    "fat": 14,
+    "protein": 15,
+    "carbohydrates": 6
+  },
+  "Tandoori Chicken": {
+    "calories": 200,
+    "fat": 10,
+    "protein": 20,
+    "carbohydrates": 5
+  },
+  "Pani Puri": {
+    "calories": 170,
+    "fat": 8,
+    "protein": 2,
+    "carbohydrates": 25
+  },
+  "Dosa": {
+    "calories": 150,
+    "fat": 6,
+    "protein": 3,
+    "carbohydrates": 20
+  },
+  "Idli": {
+    "calories": 70,
+    "fat": 1,
+    "protein": 2,
+    "carbohydrates": 14
+  },
+  "Vada Pav": {
+    "calories": 260,
+    "fat": 15,
+    "protein": 6,
+    "carbohydrates": 30
+  },
+  "Pulao": {
+    "calories": 180,
+    "fat": 7,
+    "protein": 5,
+    "carbohydrates": 23
+  },
+  "Bhindi Masala": {
+    "calories": 90,
+    "fat": 5,
+    "protein": 3,
+    "carbohydrates": 12
+  },
+  "Kadhi Pakora": {
+    "calories": 210,
+    "fat": 12,
+    "protein": 5,
+    "carbohydrates": 20
+  },
+  "Aloo Paratha": {
+    "calories": 250,
+    "fat": 12,
+    "protein": 6,
+    "carbohydrates": 30
+  },
+  "Rajma": {
+    "calories": 150,
+    "fat": 2,
+    "protein": 8,
+    "carbohydrates": 24
+  },
+  "Kachori": {
+    "calories": 290,
+    "fat": 16,
+    "protein": 6,
+    "carbohydrates": 35
+  },
+  "Pesarattu": {
+    "calories": 200,
+    "fat": 8,
+    "protein": 9,
+    "carbohydrates": 20
+  },
+  "Gutti Vankaya": {
+    "calories": 130,
+    "fat": 6,
+    "protein": 5,
+    "carbohydrates": 15
+  },
+  "Methi Thepla": {
+    "calories": 200,
+    "fat": 9,
+    "protein": 7,
+    "carbohydrates": 25
+  },
+  "Pav Bhaji": {
+    "calories": 240,
+    "fat": 10,
+    "protein": 6,
+    "carbohydrates": 30
+  },
+  "Khichdi": {
+    "calories": 150,
+    "fat": 4,
+    "protein": 6,
+    "carbohydrates": 22
+  },
+  "Vegetable Korma": {
+    "calories": 170,
+    "fat": 12,
+    "protein": 4,
+    "carbohydrates": 15
+  }
+}

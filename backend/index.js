@@ -15,11 +15,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 connectDB()
 
-app.use(cors({
-  origin: 'https://calorie-rose.vercel.app',
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
-
+app.use(cors());
+app.options('*', cors());
 // Database connection
 connect();
 

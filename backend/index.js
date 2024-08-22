@@ -15,6 +15,22 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 connectDB()
 
+app.get('/news', async (req, res) => {
+  try {
+    const response = await axios.get('https://newsapi.org/v2/top-headlines', {
+      params: {
+        country: 'in',
+        category: 'health',
+        apiKey: '4495415c9b6b4982b5cd3b9ebe8ddfd2'
+      }
+    });
+    res.json(response.data);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error fetching news' });
+  }
+});
+
 app.use(cors({
   origin: 'https://calorie-rose.vercel.app', // Explicitly allow this origin
   allowedHeaders: ['Content-Type', 'Authorization'],

@@ -1,17 +1,13 @@
+import axios from 'axios';
+
 const news = async () => {
-  const newsData = await fetch('https://newsapi.org/v2/top-headlines?country=in&category=health&apiKey=4495415c9b6b4982b5cd3b9ebe8ddfd2');
-  
-  // Check if the response is okay
-  if (!newsData.ok) {
-    throw new Error('Network response was not ok');
+  try {
+    const response = await axios.get('https://calorie-rose.vercel.app/news');
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching news:', error);
+    throw error;
   }
-
-  // Read the response body as JSON
-  const jsonData = await newsData.json();
-
-
-
-  return jsonData;
 }
 
 export default news;

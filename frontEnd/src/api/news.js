@@ -3,8 +3,9 @@ import axios from 'axios';
 const news = async () => {
   try {
     const response = await axios.get('https://calorie-rose.vercel.app/news');
+       console.log(response)
     return response.data.json();
-    console.log(response)
+ 
   } catch (error) {
     console.error('Error fetching news:', error);
     throw error;

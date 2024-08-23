@@ -38,7 +38,12 @@ const calAverage=()=>{
   const totalCarb = addElements(dataset.map(item => item.totalCarbohydrates));
   const totalFat = addElements(dataset.map(item => item.totalFat));
   const totalCalories = addElements(dataset.map(item => item.totalCalories));
-
+console.log(totalProtein)
+console.log(totalCarb)
+console.log(totalFat)
+console.log(totalCalories)
+  
+console.log(dataset.length)
 
   setLength(dataset.length)
   setProtein(totalProtein/length);

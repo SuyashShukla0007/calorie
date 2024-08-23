@@ -56,10 +56,13 @@ const Calorie: React.FC = () => {
       ) : (
         <p>Loading...</p>
       )}
-      <div className='h-[40vh] w-[50vw] px-10 ml-[2vw] mt-12 bg-black rounded-xl'>
+      
+      <div className='h-[40vh] w-[30vw] px-10 ml-[2vw] mt-12 bg-black rounded-xl'>
         <BarChart />
       </div>
+      <div className='top-[6vh] absolute right-[10vw] rounded-3xl bg-black h-[45vh] w-[25vw] flex items-center justify-center'>
       <DoughnutChart />
+      </div>
     </div>
   );
 };

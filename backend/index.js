@@ -17,13 +17,7 @@ connectDB()
 
 app.get('/news', async (req, res) => {
   try {
-    const response = await axios.get('https://newsapi.org/v2/top-headlines', {
-      params: {
-        country: 'in',
-        category: 'health',
-        apiKey: '4495415c9b6b4982b5cd3b9ebe8ddfd2'
-      }
-    });
+    const response = await axios.get('https://newsapi.org/v2/top-headlines?country=in&category=health&apiKey=4495415c9b6b4982b5cd3b9ebe8ddfd2');
     console.log(response.data);
     res.json(response.data);
   } catch (error) {

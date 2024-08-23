@@ -32,7 +32,7 @@ app.get('/news', async (req, res) => {
 });
 
 app.use(cors({
-  origin: '*', // Explicitly allow this origin
+  origin: 'http://localhost:5173/', // Explicitly allow this origin
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true // Allow credentials (cookies, authorization headers, etc.)
 }));

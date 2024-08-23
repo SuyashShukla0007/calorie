@@ -16,7 +16,7 @@ const DoughnutChart = () => {
     fetch();
   }, []);
   const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD format
-  const todayData:any = dataset.find((data) => data.date.startsWith(today)) || {};
+  const todayData:any = dataset?.find((data) => data.date.startsWith(today)) || {};
 
   // Combine all data into a single dataset for the Doughnut chart
   const chartData = {
@@ -24,14 +24,14 @@ const DoughnutChart = () => {
     datasets: [
       {
         data: [
-          todayData.totalProtein || 0,
-          todayData.totalCarbohydrates || 0,
-          todayData.totalFat || 0,
+          todayData.totalProtein || 10,
+          todayData.totalCarbohydrates || 10,
+          todayData.totalFat || 10,
         ],
         backgroundColor: [
-          "#FF6384", // Protein color
-          "#36A2EB", // Carbohydrates color
-          "#FFCE56", // Total Fat color
+          "#fc0303", // Protein color
+          "#0388fc", // Carbohydrates color
+          "#ecfc03", // Total Fat color
         ],
         borderColor: "#fff",
         borderWidth: 1,
@@ -58,8 +58,10 @@ const DoughnutChart = () => {
   };
 
   return (
-    <div className="h-96 mt-4 w-[40vw] ml-[10vw]">
-      <Doughnut data={chartData} options={chartOptions} />
+    <div className="h-80  w-[30vw] ">
+
+      {dataset?((<p>Loading...</p>)):((<Doughnut data={chartData} options={chartOptions} />))}
+      
     </div>
   );
 };

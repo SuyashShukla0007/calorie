@@ -60,7 +60,7 @@ const DoughnutChart = () => {
   return (
     <div className="h-80  w-[30vw] ">
 
-      {dataset?((<p>Loading...</p>)):((<Doughnut data={chartData} options={chartOptions} />))}
+      {!dataset?((<p>Loading...</p>)):((<Doughnut data={chartData} options={chartOptions} />))}
       
     </div>
   );

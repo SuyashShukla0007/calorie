@@ -32,7 +32,7 @@ app.get('/news', async (req, res) => {
 });
 
 app.use(cors({
-  origin: 'http://localhost:5173/', // Explicitly allow this origin
+  origin: 'https://calorie-rose.vercel.app/', // Explicitly allow this origin
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true // Allow credentials (cookies, authorization headers, etc.)
 }));

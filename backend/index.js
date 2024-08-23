@@ -24,6 +24,7 @@ app.get('/news', async (req, res) => {
         apiKey: '4495415c9b6b4982b5cd3b9ebe8ddfd2'
       }
     });
+    console.log(response.data);
     res.json(response.data);
   } catch (error) {
     console.error(error);

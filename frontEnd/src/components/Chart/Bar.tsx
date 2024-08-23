@@ -35,7 +35,6 @@ const BarChart = () => {
       const totalFat = addElements(dataset.map(item => item.totalFat));
       const totalCalories = addElements(dataset.map(item => item.totalCalories));
 
-      setLength(dataset.length);
       setProtein(totalProtein / dataset.length);
       setCalorie(totalCalories / dataset.length);
       setCarb(totalCarb / dataset.length);

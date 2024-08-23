@@ -14,7 +14,7 @@ const News = () => {
       try {
         const data = await news()
         setArticles(data.articles || []) // Ensure articles is always an array
-        console.log(data.articles)
+        console.log(data)
       } catch {
         console.log("error")
       }

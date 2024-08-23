@@ -25,7 +25,6 @@ const BarChart = () => {
   const [avgCalorie, setCalorie] = useState(0);
   const [avgFat, setFat] = useState(0);
   const [avgCarb, setCarb] = useState(0);
-  const [length, setLength] = useState(0);
 
   const addElements = (arr: number[]): number => arr.reduce((sum, element) => sum + element, 0);
 

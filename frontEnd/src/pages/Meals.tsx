@@ -75,12 +75,16 @@ fetchCalories()
     <div className="font-bold text-xl flex flex-col absolute bottom-[5%] left-[25%] space-y-8 p-4 items-start">
   <div className="flex flex-row items-start">
     <p className="text-blue-800 mb-2">Calories consumed today:</p>
-    <p className="text-black">{calories}</p>
+{/*     <p className="text-black">{calories.toFixed(0)}</p> */}
+    <p className="text-black">{(calories ?? 0).toFixed(0)}</p>
+
   </div>
 
   <div className="flex flex-row items-start">
     <p className="text-blue-800 mb-2">Carbohydrates consumed today:</p>
-    <p className="text-black">{carbohydrates}g</p>
+{/*     <p className="text-black">{carbohydrates}g</p> */}
+    <p className="text-black">{(carbohydrates ?? 0).toFixed(2)}</p>
+
   </div>
 </div>
 
@@ -88,12 +92,16 @@ fetchCalories()
   <div className="font-bold text-xl flex flex-col absolute bottom-[5%] left-[75%] space-y-8 p-4 items-start">
   <div className="flex flex-row items-start">
     <p className="text-blue-800 mb-2">Protein consumed today:</p>
-    <p className="text-black">{protein}g</p>
+{/*     <p className="text-black">{protein}g</p> */}
+    <p className="text-black">{(protein ?? 0).toFixed(2)}</p>
+    
   </div>
 
   <div className="flex flex-row items-start">
     <p className="text-blue-800 mb-2">Fat consumed today:</p>
-    <p className="text-black">{fat}g</p>
+{/*     <p className="text-black">{fat}g</p> */}
+    <p className="text-black">{(fat ?? 0).toFixed(2)}</p>
+    
   </div>
 </div>
 

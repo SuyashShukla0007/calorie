@@ -23,11 +23,11 @@ const DoughnutChart = () => {
     labels: ['Protein', 'Carbohydrates', 'Total Fat'],
     datasets: [
       {
-        data: [
-          parseFloat(todayData.totalProtein.toFixed(2))|| 10,
-          parseFloat(todayData.totalCarbohydrates.toFixed(2)) || 10,
-          parseFloat(todayData.totalFat.toFixed(2)) || 10,
-        ],
+      data: [
+  parseFloat((typeof todayData.totalProtein === 'number' ? todayData.totalProtein : 10).toFixed(2)),
+  parseFloat((typeof todayData.totalCarbohydrates === 'number' ? todayData.totalCarbohydrates : 10).toFixed(2)),
+  parseFloat((typeof todayData.totalFat === 'number' ? todayData.totalFat : 10).toFixed(2)),
+],
         backgroundColor: [
           "#fc0303", // Protein color
           "#0388fc", // Carbohydrates color

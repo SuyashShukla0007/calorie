@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import BarChart from '../components/Chart/Bar';
 import DoughnutChart from '../components/Chart/Doughnut';
 //@ts-ignore

@@ -35,10 +35,15 @@ const BarChart = () => {
       const totalFat = addElements(dataset.map(item => item.totalFat));
       const totalCalories = addElements(dataset.map(item => item.totalCalories));
 
-      setProtein(totalProtein / dataset.length);
-      setCalorie(totalCalories / dataset.length);
-      setCarb(totalCarb / dataset.length);
-      setFat(totalFat / dataset.length);
+      // setProtein(totalProtein / dataset.length);
+      setProtein(parseFloat((totalProtein / dataset.length).toFixed(2)));
+setCalorie(parseFloat((totalCalories / dataset.length).toFixed(2)));
+setCarb(parseFloat((totalCarb / dataset.length).toFixed(2)));
+setFat(parseFloat((totalFat / dataset.length).toFixed(2)));
+
+      // (totalCalories / dataset.length);
+      // setCarb(totalCarb / dataset.length);
+      // setFat(totalFat / dataset.length);
     }
   };
 

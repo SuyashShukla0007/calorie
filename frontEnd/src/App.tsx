@@ -19,7 +19,21 @@ import Meals from './pages/Meals';
 import CalorieCalculator from './components/IdealCalorie';
 import IdealWeight from './components/IdealWeight';
 import Login from './pages/Login';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+
 const App = () => {
+
+const navigate=useNavigate()
+
+useEffect(() => {
+  const token = localStorage.getItem('auth');
+  if (token) {
+    console.log("Token found, redirecting...");
+    navigate('/meals');
+  }
+}, [navigate]);
+  
   return (
     
     <Routes >

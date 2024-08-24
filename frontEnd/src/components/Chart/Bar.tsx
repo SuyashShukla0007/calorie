@@ -101,7 +101,7 @@ const BarChart = () => {
             <li><strong>Avg Fat Intake:</strong> {avgFat}</li>
           </ul>
         </div>
-        <div className="absolute h-[40vh] w-[40vw] rounded-xl top-[54vh] bg-black">
+        <div className="absolute left-[25vw] h-[40vh] w-[40vw] rounded-xl top-[54vh] bg-black">
           <Line
             className="h-96 w-[40vw]"
             data={{

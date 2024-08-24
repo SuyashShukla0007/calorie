@@ -42,7 +42,11 @@ const DoughnutChart = () => {
   const chartOptions = {
     plugins: {
       legend: {
-        display: true, // Enable legend if you want to display labels
+        display: true,
+         labels: {
+        color: '#fff' // Set label color to white
+      }
+        // Enable legend if you want to display labels
       },
       tooltip: {
         callbacks: {

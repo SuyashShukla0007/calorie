@@ -26,13 +26,13 @@ const App = () => {
 
 const navigate=useNavigate()
 
-useEffect(() => {
-  const token = localStorage.getItem('auth');
-  if (token) {
-    console.log("Token found, redirecting...");
-    navigate('/meals');
-  }
-}, [navigate]);
+  useEffect(() => {
+    const token = localStorage.getItem('auth');
+    if (token && (window.location.pathname === '/login' || window.location.pathname === '/')) {
+      console.log("Token found, redirecting from login/signup...");
+      navigate('/meals');
+    }
+  }, [navigate]);
   
   return (
     

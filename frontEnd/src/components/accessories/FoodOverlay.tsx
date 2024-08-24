@@ -71,7 +71,7 @@ const FoodEntryOverlay: React.FC<prop> = (props) => {
     }
 
     try {
-      handleClose();
+      
       const token=localStorage.getItem('auth')
       await axios.post(' https://calorie-2.onrender.com/api/meal', {
         food,
@@ -84,7 +84,7 @@ const FoodEntryOverlay: React.FC<prop> = (props) => {
       ,
       withCredentials: true}
     );
-      
+      handleClose();
     } catch (error) {
       console.error('Error adding food:', error);
     }

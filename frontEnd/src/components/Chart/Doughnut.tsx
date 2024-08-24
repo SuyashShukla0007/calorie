@@ -24,9 +24,9 @@ const DoughnutChart = () => {
     datasets: [
       {
         data: [
-          todayData.totalProtein || 10,
-          todayData.totalCarbohydrates || 10,
-          todayData.totalFat || 10,
+          parseFloat(todayData.totalProtein.toFixed(2)); || 10,
+          parseFloat(todayData.totalCarbohydrates.toFixed(2)); || 10,
+          parseFloat(todayData.totalFat.toFixed(2)); || 10,
         ],
         backgroundColor: [
           "#fc0303", // Protein color

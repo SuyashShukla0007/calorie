@@ -37,7 +37,7 @@ const BarChart = () => {
 
       // setProtein(totalProtein / dataset.length);
       setProtein(parseFloat((totalProtein / dataset.length).toFixed(2)));
-setCalorie(parseFloat((totalCalories / dataset.length).toFixed(2)));
+setCalorie(parseFloat((totalCalories / dataset.length).toFixed(0)));
 setCarb(parseFloat((totalCarb / dataset.length).toFixed(2)));
 setFat(parseFloat((totalFat / dataset.length).toFixed(2)));
 
@@ -84,10 +84,10 @@ setFat(parseFloat((totalFat / dataset.length).toFixed(2)));
           <li><strong>Name:</strong> {userData?.firstname}</li>
           <li><strong>Weight:</strong> {userData?.weight}</li>
           <li><strong>Height:</strong> {userData?.height}</li>
-          <li><strong>Avg Calorie Intake:</strong> {avgCalorie}</li>
-          <li><strong>Avg Protein Intake:</strong> {avgProtein}</li>
-          <li><strong>Avg Carbohydrate Intake:</strong> {avgCarb}</li>
-          <li><strong>Avg Fat Intake:</strong> {avgFat}</li>
+          <li><strong>Avg Calorie Intake:</strong> {avgCalorie} Cal</li>
+          <li><strong>Avg Protein Intake:</strong> {avgProtein}g</li>
+          <li><strong>Avg Carbohydrate Intake:</strong> {avgCarb}g</li>
+          <li><strong>Avg Fat Intake:</strong> {avgFat}g</li>
         </ul>
       </div>
     );
@@ -100,10 +100,10 @@ setFat(parseFloat((totalFat / dataset.length).toFixed(2)));
             <li><strong>Name:</strong> {userData?.firstname}</li>
             <li><strong>Weight:</strong> {userData?.weight}</li>
             <li><strong>Height:</strong> {userData?.height}</li>
-            <li><strong>Avg Calorie Intake:</strong> {avgCalorie}</li>
-            <li><strong>Avg Protein Intake:</strong> {avgProtein}</li>
-            <li><strong>Avg Carbohydrate Intake:</strong> {avgCarb}</li>
-            <li><strong>Avg Fat Intake:</strong> {avgFat}</li>
+            <li><strong>Avg Calorie Intake:</strong> {avgCalorie} Cal</li>
+            <li><strong>Avg Protein Intake:</strong> {avgProtein}g</li>
+            <li><strong>Avg Carbohydrate Intake:</strong> {avgCarb}g</li>
+            <li><strong>Avg Fat Intake:</strong> {avgFat}g</li>
           </ul>
         </div>
         <div className="absolute left-[25vw] h-[40vh] w-[40vw] rounded-xl top-[54vh] bg-black">

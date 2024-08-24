@@ -101,9 +101,9 @@ const BarChart = () => {
             <li><strong>Avg Fat Intake:</strong> {avgFat}</li>
           </ul>
         </div>
-        <div className="absolute h-[40vh] rounded-xl top-[52vh] bg-black">
+        <div className="absolute h-[40vh] w-[40vw] rounded-xl top-[52vh] bg-black">
           <Line
-            className="h-96 w-[60vw]"
+            className="h-96 w-[40vw]"
             data={{
               labels: dataset.map(data => data.date.substring(5)),
               datasets: [

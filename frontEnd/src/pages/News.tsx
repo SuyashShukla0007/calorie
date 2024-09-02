@@ -39,7 +39,9 @@ const News = () => {
             />
           ))
         ) : (
+      <div className="absolute h-[100vh] w-screen  top-0 right-0 xl:w-[76vw]">
           <Loading/>
+        <div/>
         )}
       </div>
     </div>

@@ -1,10 +1,11 @@
-// @ts-ignore
 import React, { useState, useEffect } from 'react';
 import img from '../assets/logo.avif'; // Ensure this path is correct
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { useMealsContext } from '../api/context api/meals'; // Import the custom hook
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
+  const { getMeals, fetchCalories } = useMealsContext();
   const [path, setPath] = useState<string>('');
   const [isOpen, setIsOpen] = useState(false); // State for mobile menu
 
@@ -23,12 +24,8 @@ const Navbar = () => {
   }, [window.location.href]);
 
   const handleMeals = async () => {
-    const token = localStorage.getItem('auth');
-    // @ts-ignore
-    const res = await axios.get('https://backend-ten-neon-56.vercel.app/api/meal', { 
-      headers: { 'Authorization': `Bearer ${token}` },
-      withCredentials: true
-    });
+    await getMeals(); // Update meals data in context
+    await fetchCalories(); // Fetch and update calorie data in context
   };
 
   const handleLogout = async () => {
@@ -45,7 +42,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gray-900 text-white lg:w-[24vw] min-h-screen flex flex-col">
+    <nav className={`bg-gray-900 text-white lg:w-[24vw] min-h-screen flex flex-col ${!isOpen ? 'lg:flex' : ''}`}>
       {/* Logo and Hamburger Menu */}
       <div className="sticky top-0 z-50 bg-gray-900 shadow-md w-full p-4 flex items-center justify-between lg:hidden">
         <div className="h-[150px] flex items-center">
@@ -81,8 +78,11 @@ const Navbar = () => {
               Dashboard
             </li>
           </Link>
-          <Link to='/meals' onClick={() => setIsOpen(false)}>
-            <li className={`px-5 py-3 text-lg border-l-4 ${path === "meals" ? 'border-blue-500' : 'border-transparent'} hover:bg-gray-800`} onClick={handleMeals}>
+          <Link to='/meals' onClick={() => {
+            setIsOpen(false);
+            handleMeals(); // Fetch meals and calories on Meals click
+          }}>
+            <li className={`px-5 py-3 text-lg border-l-4 ${path === "meals" ? 'border-blue-500' : 'border-transparent'} hover:bg-gray-800`}>
               Meals
             </li>
           </Link>
@@ -103,7 +103,7 @@ const Navbar = () => {
       </div>
 
       {/* Desktop Navbar Links */}
-      <div className="hidden lg:flex flex-col gap-2 p-4">
+      <div className={`hidden lg:flex flex-col gap-2 p-4 ${isOpen ? 'hidden' : ''}`}>
         <div className="flex items-center justify-center mb-4">
           <img src={img} alt="Logo" className="h-[150px] object-contain" />
         </div>
@@ -135,6 +135,6 @@ const Navbar = () => {
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;

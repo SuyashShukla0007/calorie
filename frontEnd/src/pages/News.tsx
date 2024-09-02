@@ -3,6 +3,7 @@ import Card from '../components/Card';
 //@ts-ignore
 import news from '../api/news';
 import { Article } from '../components/types/interface';
+import Loading from '../components/accessories/Loading';
 
 const News = () => {
   const [articles, setArticles] = useState<Article[]>([]);
@@ -22,6 +23,7 @@ const News = () => {
 
   return (
     <div>
+       {!articles && <Loading/>}
       <div id="newsHead" className="bg-gray-900  text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl py-4 px-4 sm:px-8 md:px-12  lg:px-16 mx-4 mt-4 rounded-3xl font-serif">
         HEALTH NEWS
       </div>

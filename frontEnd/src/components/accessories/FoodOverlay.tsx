@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { mealType } from '../types/type';
 import axios from 'axios';
 import { z } from 'zod';
-
+import { useMealsContext } from '../../api/context api/meals';
 const foodOptions = {
   Sweet: [
     "Gulab Jamun", "Jalebi", "Rasgulla", "Barfi", "Kaju Katli", "Ladoo", "Peda", "Ras Malai", "Chum Chum",
@@ -33,6 +33,7 @@ type prop = {
 };
 
 const FoodEntryOverlay: React.FC<prop> = (props) => {
+  const {fetchCalories}=useMealsContext()
   const [foodType, setFoodType] = useState('');
   const [food, setFood] = useState('');
   const [quantity, setQuantity] = useState('');
@@ -71,8 +72,10 @@ const FoodEntryOverlay: React.FC<prop> = (props) => {
     }
 
     try {
-      
+      fetchCalories()
+      handleClose();
       const token=localStorage.getItem('auth')
+
       await axios.post(' https://backend-ten-neon-56.vercel.app/api/meal', {
         food,
         meal: props.mealType,
@@ -84,7 +87,7 @@ const FoodEntryOverlay: React.FC<prop> = (props) => {
       ,
       withCredentials: true}
     );
-      handleClose();
+    
     } catch (error) {
       console.error('Error adding food:', error);
     }

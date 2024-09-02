@@ -120,14 +120,9 @@ const Calorie: React.FC = () => {
           </motion.div>
 
           {/* Bar Chart on the bottom middle for lg screens */}
-          <motion.div
-            variants={cardVariants}
-            initial="hidden"
-            animate="visible"
-            className="w-full lg:w-[90%] xl:w-[85%] mx-auto p-4 bg-black rounded-3xl text-white lg:h-[40vh] xl:h-[45vh]"
-          >
+          
             <BarChart />
-          </motion.div>
+{/*           </motion.div> */}
         </div>
       )}
     </div>

@@ -3,7 +3,7 @@ import Card from '../components/Card';
 //@ts-ignore
 import news from '../api/news';
 import { Article } from '../components/types/interface';
-import Loading from '../components/accessories/Loading';
+// import Loading from '../components/accessories/Loading';
 
 const News = () => {
   const [articles, setArticles] = useState<Article[]>([]);
@@ -39,9 +39,10 @@ const News = () => {
             />
           ))
         ) : (
-      <div className="absolute h-[100vh] w-screen  top-0 right-0 xl:w-[76vw]">
-          <Loading/>
-      </div>
+      <div></div>
+      // <div className="absolute h-[100vh] w-screen  top-0 right-0 xl:w-[76vw]">
+      //     <Loading/>
+      // </div>
         )}
       </div>
     </div>

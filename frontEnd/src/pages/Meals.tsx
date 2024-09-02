@@ -62,7 +62,7 @@ const Meals = () => {
 
       <div className="w-[75vw] p-4 lg:p-8 flex flex-col lg:flex-row gap-4 lg:gap-8 lg:justify-between lg:items-start">
         {/* Added flex-row for large screens and gap between sections */}
-        <motion.div variants={cardVariants} className="flex flex-col space-y-4 w-full lg:w-1/3">
+        <motion.div variants={cardVariants} className="flex flex-col space-y-4 w-full lg:w-1/2">
           <div className="font-bold text-lg sm:text-xl pl-8 text-left sm:text-center lg:text-left">
             <div className="flex">
               <p className="text-blue-800 mb-2">Calories consumed today:</p>
@@ -77,7 +77,7 @@ const Meals = () => {
           </div>
         </motion.div>
 
-        <motion.div variants={cardVariants} className="flex flex-col space-y-4 w-full lg:w-1/3">
+        <motion.div variants={cardVariants} className="flex flex-col space-y-4 w-full lg:w-1/2">
           <div className="font-bold text-lg sm:text-xl pl-8 text-left sm:text-center lg:text-left">
             <div className="flex">
               <p className="text-blue-800 mb-2">Protein consumed today:</p>

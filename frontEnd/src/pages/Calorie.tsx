@@ -10,15 +10,15 @@ const Calorie: React.FC = () => {
   };
 
   return (
-    <div className="relative p-4 lg:p-8 flex flex-col lg:flex-row gap-4 lg:gap-8">
-      <div className="h-[40vh] w-full lg:w-[30vw] px-4 lg:px-10 bg-black rounded-xl">
-        <motion.div variants={cardVariants} className="h-full flex items-center justify-center">
+    <div className="relative p-4 lg:p-8 flex flex-col gap-4 lg:gap-8">
+      <div className="w-full lg:w-[45vw] xl:w-[40vw] 2xl:w-[35vw] px-4 lg:px-6 xl:px-8 bg-black rounded-xl h-[40vh] lg:h-[45vh] xl:h-[50vh] flex items-center justify-center">
+        <motion.div variants={cardVariants} className="w-full h-full flex items-center justify-center">
           <BarChart />
         </motion.div>
       </div>
 
-      <div className="h-[45vh] w-full lg:w-[25vw] bg-black rounded-3xl flex items-center justify-center lg:absolute lg:right-[10vw] lg:top-[6vh]">
-        <motion.div variants={cardVariants} className="h-full flex items-center justify-center">
+      <div className="w-full lg:w-[45vw] xl:w-[40vw] 2xl:w-[35vw] px-4 lg:px-6 xl:px-8 bg-black rounded-3xl h-[45vh] lg:h-[50vh] xl:h-[55vh] flex items-center justify-center">
+        <motion.div variants={cardVariants} className="w-full h-full flex items-center justify-center">
           <DoughnutChart />
         </motion.div>
       </div>

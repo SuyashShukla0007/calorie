@@ -3,6 +3,7 @@ import MealCard from '../components/MealCard';
 import { mealType } from '../components/types/type';
 import { useMealsContext } from '../api/context api/meals'; // Adjust the import path as necessary
 import { motion } from 'framer-motion'; // Importing framer-motion for animations
+import Loading from '../components/accessories/Loading';
 
 const Meals = () => {
   const { breakFast, dinner, snacks, lunch, calories, fetchCalories, carbohydrates, protein, fat, getMeals } = useMealsContext();

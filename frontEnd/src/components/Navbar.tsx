@@ -44,7 +44,7 @@ const Navbar: React.FC = () => {
   return (
     <nav className={`bg-gray-900 text-white lg:w-[24vw] min-h-screen flex flex-col ${!isOpen ? 'lg:flex' : ''}`}>
       {/* Logo and Hamburger Menu */}
-     <div className="top-0 fixed z-50 bg-gray-900 shadow-md w-full p-4 flex items-center justify-between lg:hidden">
+     <div className="top-0  sticky z-50 bg-gray-900 shadow-md w-full p-4 flex items-center justify-between lg:hidden">
         <div className="h-[150px] flex items-center">
           <img src={img} alt="Logo" className="h-[100px] object-contain" />
         </div>

@@ -44,7 +44,7 @@ const Navbar: React.FC = () => {
   return (
     <nav className={`bg-gray-900 text-white lg:w-[24vw] min-h-screen flex flex-col ${!isOpen ? 'lg:flex' : ''}`}>
       {/* Logo and Hamburger Menu */}
-     <div className="top-0 xl:sticky z-50 bg-gray-900 shadow-md w-full p-4 flex items-center justify-between lg:hidden">
+     <div className="top-0 fixed z-50 bg-gray-900 shadow-md w-full p-4 flex items-center justify-between lg:hidden">
         <div className="h-[150px] flex items-center">
           <img src={img} alt="Logo" className="h-[100px] object-contain" />
         </div>
@@ -72,7 +72,7 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Menu Links */}
       <div className={`lg:hidden ${isOpen ? 'block' : 'hidden'} bg-gray-900`}>
-        <ul className="flex flex-col gap-2 p-4">
+        <ul className="flex flex-col gap-2 p-4 fixed">
           <Link to='/dash' onClick={() => setIsOpen(false)}>
             <li className={`px-5 py-3 text-lg border-l-4 ${path === "" ? 'border-blue-500' : 'border-transparent'} hover:bg-gray-800`}>
               Dashboard

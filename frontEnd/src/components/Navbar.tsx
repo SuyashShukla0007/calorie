@@ -25,7 +25,7 @@ const Navbar = () => {
   const handleMeals = async () => {
     const token = localStorage.getItem('auth');
     // @ts-ignore
-    const res = await axios.get('https://calorie-2.onrender.com/api/meal', { 
+    const res = await axios.get('https://backend-ten-neon-56.vercel.app/api/meal', { 
       headers: { 'Authorization': `Bearer ${token}` },
       withCredentials: true
     });
@@ -34,7 +34,7 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       // Send a POST request to the logout endpoint
-      await axios.post('https://calorie-2.onrender.com/api/logout');
+      await axios.post('https://backend-ten-neon-56.vercel.app/api/logout');
       // Clear token from local storage or cookies (if applicable)
       localStorage.removeItem('auth'); // Adjust if you're using cookies instead
       // Redirect to login page or homepage after logout

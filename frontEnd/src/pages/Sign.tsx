@@ -22,7 +22,7 @@ const Sign = () => {
                 return;
             }
 
-            const response = await fetch(' https://calorie-2.onrender.com/api/sign', {
+            const response = await fetch(' https://backend-ten-neon-56.vercel.app/api/sign', {
                 method: 'POST',
                 headers: {
                     'Authorization':'',

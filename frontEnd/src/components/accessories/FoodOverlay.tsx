@@ -73,7 +73,7 @@ const FoodEntryOverlay: React.FC<prop> = (props) => {
     try {
       
       const token=localStorage.getItem('auth')
-      await axios.post(' https://calorie-2.onrender.com/api/meal', {
+      await axios.post(' https://backend-ten-neon-56.vercel.app/api/meal', {
         food,
         meal: props.mealType,
         type: foodType,

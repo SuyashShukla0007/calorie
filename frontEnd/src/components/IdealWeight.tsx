@@ -17,7 +17,7 @@ const IdealWeight = () => {
       setIdealWeight(weight);
 
       // Fetch health tips based on weight
-      const response = await fetch('  https://calorie-2.onrender.com/api/health-tips', {
+      const response = await fetch('  https://backend-ten-neon-56.vercel.app/api/health-tips', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ weight })

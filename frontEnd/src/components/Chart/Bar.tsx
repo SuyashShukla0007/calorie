@@ -51,7 +51,7 @@ setFat(parseFloat((totalFat / dataset.length).toFixed(2)));
     const fetchData = async () => {
       try {
         const token = localStorage.getItem('auth');
-        const res = await axios.get('https://calorie-2.onrender.com/api/user', {
+        const res = await axios.get('https://backend-ten-neon-56.vercel.app/api/user', {
           headers: { 'Authorization': `Bearer ${token}` },
           withCredentials: true
         });

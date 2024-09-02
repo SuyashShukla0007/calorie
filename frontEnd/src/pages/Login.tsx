@@ -10,7 +10,7 @@ const Login = () => {
     const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault(); // Prevent default form submission behavior
         try {
-            const response = await fetch('https://calorie-2.onrender.com/api/login', {
+            const response = await fetch('https://backend-ten-neon-56.vercel.app/api/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

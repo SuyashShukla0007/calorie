@@ -44,7 +44,7 @@ const [carbohydrates,setCarbohydrates]=useState(0)
   const getMeals = async () => {
     try {
       const token = localStorage.getItem('auth');
-      const res = await axios.get('https://calorie-2.onrender.com/api/meal/foods',{ 
+      const res = await axios.get('https://backend-ten-neon-56.vercel.app/api/meal/foods',{ 
         headers:{'Authorization':`Bearer ${token}`},
         withCredentials: true});
       setBreakfast(res.data.Breakfast);
@@ -66,7 +66,7 @@ const [carbohydrates,setCarbohydrates]=useState(0)
     try {
       const token = localStorage.getItem('auth');
 
-      const res = await axios.get(' https://calorie-2.onrender.com/api/meal/calorie',{
+      const res = await axios.get(' https://backend-ten-neon-56.vercel.app/api/meal/calorie',{
         headers:{'Authorization':`Bearer ${token}`},
         withCredentials: true
       });

@@ -33,7 +33,7 @@ const BarChart = () => {
  
 
   return (
-    <div className="absolute left-[4vw] h-[40vh] w-[40vw] top-[58vh] rounded-xl  bg-black xl:hidden">
+    <div className="absolute left-[4vw] h-[40vh] w-[40vw] top-[58vh] rounded-xl  bg-black hidden xl:block">
       <Line
         className="h-60 xl:h-96 w-[40vw]"
         data={{

@@ -1,33 +1,31 @@
-// @ts-ignore
-import React, { useEffect, useState } from 'react'
-import Card from '../components/Card'
-// @ts-ignore
-import news from '../api/news'
-// @ts-ignore
-import { Article } from '../components/types/interface'
+import  { useEffect, useState } from 'react';
+import Card from '../components/Card';
+//@ts-ignore
+import news from '../api/news';
+import { Article } from '../components/types/interface';
 
 const News = () => {
-  const [articles, setArticles] = useState<Article[]>([])
+  const [articles, setArticles] = useState<Article[]>([]);
 
   useEffect(() => {
     const fetchNewsData = async () => {
       try {
-        const data = await news()
-        setArticles(data.articles || []) // Ensure articles is always an array
-        console.log(data)
-      } catch {
-        console.log("error")
+        const data = await news();
+        setArticles(data.articles || []); // Ensure articles is always an array
+        console.log(data);
+      } catch (error) {
+        console.log("Error fetching news:", error);
       }
-    }
-    fetchNewsData()
-  }, [])
+    };
+    fetchNewsData();
+  }, []);
 
   return (
     <div>
-      <div id="newsHead" className="h-[120px] bg-gray-900 text-white text-5xl py-[35px] px-[350px] w-[75vw] mx-3 mt-4 rounded-3xl font-serif">
+      <div id="newsHead" className="bg-gray-900  text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl py-4 px-4 sm:px-8 md:px-12  lg:px-16 mx-4 mt-4 rounded-3xl font-serif">
         HEALTH NEWS
       </div>
-      <div className="grid grid-cols-4 mt-3 ml-[85px] text-pretty">
+      <div className="grid grid-cols-1 lg:ml-[2vw] sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4 px-4">
         {articles && articles.length > 0 ? (
           articles.map((article, index) => (
             <Card
@@ -39,11 +37,11 @@ const News = () => {
             />
           ))
         ) : (
-          <div>No articles available</div>
+          <div className="col-span-full text-center">No articles available</div>
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default News
+export default News;

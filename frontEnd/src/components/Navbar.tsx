@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 
 const Navbar = () => {
-  
   const [path, setPath] = useState<string>('');
+  const [isOpen, setIsOpen] = useState(false); // State for mobile menu
 
   useEffect(() => {
     const handlePathChange = () => {
@@ -23,11 +23,12 @@ const Navbar = () => {
   }, [window.location.href]);
 
   const handleMeals = async () => {
-    const token=localStorage.getItem('auth');
+    const token = localStorage.getItem('auth');
     // @ts-ignore
-    const res = await axios.get('https://calorie-2.onrender.com/api/meal',{ 
-      headers:{'Authorization':`Bearer ${token}`},
-      withCredentials: true});
+    const res = await axios.get('https://calorie-2.onrender.com/api/meal', { 
+      headers: { 'Authorization': `Bearer ${token}` },
+      withCredentials: true
+    });
   };
 
   const handleLogout = async () => {
@@ -42,49 +43,97 @@ const Navbar = () => {
       console.error('Logout error:', error);
     }
   };
-  
 
   return (
-    <div className="bg-gray-900 text-white w-[350px] flex flex-col min-h-screen">
-      {/* Logo and Navbar */}
-      <div className="sticky top-0 z-50 bg-gray-900 shadow-md w-full p-4">
-        <div id="logo" className="h-[250px] flex items-center justify-center">
-          <img src={img} alt="Logo" className="h-[150px] object-contain" />
+    <nav className="bg-gray-900 text-white lg:w-[24vw] min-h-screen flex flex-col">
+      {/* Logo and Hamburger Menu */}
+      <div className="sticky top-0 z-50 bg-gray-900 shadow-md w-full p-4 flex items-center justify-between lg:hidden">
+        <div className="h-[150px] flex items-center">
+          <img src={img} alt="Logo" className="h-[100px] object-contain" />
         </div>
+        {/* Hamburger Menu Button */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="text-white focus:outline-none"
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}
+            />
+          </svg>
+        </button>
+      </div>
 
-        {/* Navigation Links */}
-        <ul className="mt-8 flex flex-col gap-2">
-          <Link to='/dash'>
-            <li className={`px-5 py-3 text-lg border-l-4 ${path === "" ? 'border-blue-500' : 'border-transparent'} hover:bg-gray-900 hover:border-yellow-100`}>
+      {/* Mobile Menu Links */}
+      <div className={`lg:hidden ${isOpen ? 'block' : 'hidden'} bg-gray-900`}>
+        <ul className="flex flex-col gap-2 p-4">
+          <Link to='/dash' onClick={() => setIsOpen(false)}>
+            <li className={`px-5 py-3 text-lg border-l-4 ${path === "" ? 'border-blue-500' : 'border-transparent'} hover:bg-gray-800`}>
               Dashboard
             </li>
           </Link>
-
-          <Link to='/meals'>
-            <li className={`px-5 py-3 text-lg border-l-4 ${path === "meals" ? 'border-blue-500' : 'border-transparent'} hover:bg-gray-900 hover:border-yellow-100`} onClick={handleMeals}>
+          <Link to='/meals' onClick={() => setIsOpen(false)}>
+            <li className={`px-5 py-3 text-lg border-l-4 ${path === "meals" ? 'border-blue-500' : 'border-transparent'} hover:bg-gray-800`} onClick={handleMeals}>
               Meals
             </li>
           </Link>
-
-          <Link to='/news'>
-            <li className={`px-5 py-3 text-lg border-l-4 ${path === "news" ? 'border-blue-500' : 'border-transparent'} hover:bg-gray-900 hover:border-yellow-100`}>
+          <Link to='/news' onClick={() => setIsOpen(false)}>
+            <li className={`px-5 py-3 text-lg border-l-4 ${path === "news" ? 'border-blue-500' : 'border-transparent'} hover:bg-gray-800`}>
               News
             </li>
           </Link>
-
-          <Link to='/tools'>
-            <li className={`px-5 py-3 text-lg border-l-4 ${path === "tools" ? 'border-blue-500' : 'border-transparent'} hover:bg-gray-900 hover:border-yellow-100`}>
+          <Link to='/tools' onClick={() => setIsOpen(false)}>
+            <li className={`px-5 py-3 text-lg border-l-4 ${path === "tools" ? 'border-blue-500' : 'border-transparent'} hover:bg-gray-800`}>
               Tools
             </li>
           </Link>
-
-          {/* Logout Link */}
-          <li className="px-5 py-3 text-lg border-l-4 border-transparent hover:bg-gray-900 hover:border-yellow-100 cursor-pointer" onClick={handleLogout}>
+          <li className="px-5 py-3 text-lg border-l-4 border-transparent hover:bg-gray-800 cursor-pointer" onClick={handleLogout}>
             Logout
           </li>
         </ul>
       </div>
-    </div>
+
+      {/* Desktop Navbar Links */}
+      <div className="hidden lg:flex flex-col gap-2 p-4">
+        <div className="flex items-center justify-center mb-4">
+          <img src={img} alt="Logo" className="h-[150px] object-contain" />
+        </div>
+        <ul className="flex flex-col gap-2">
+          <Link to='/dash'>
+            <li className={`px-5 py-3 text-lg border-l-4 ${path === "" ? 'border-blue-500' : 'border-transparent'} hover:bg-gray-800`}>
+              Dashboard
+            </li>
+          </Link>
+          <Link to='/meals'>
+            <li className={`px-5 py-3 text-lg border-l-4 ${path === "meals" ? 'border-blue-500' : 'border-transparent'} hover:bg-gray-800`} onClick={handleMeals}>
+              Meals
+            </li>
+          </Link>
+          <Link to='/news'>
+            <li className={`px-5 py-3 text-lg border-l-4 ${path === "news" ? 'border-blue-500' : 'border-transparent'} hover:bg-gray-800`}>
+              News
+            </li>
+          </Link>
+          <Link to='/tools'>
+            <li className={`px-5 py-3 text-lg border-l-4 ${path === "tools" ? 'border-blue-500' : 'border-transparent'} hover:bg-gray-800`}>
+              Tools
+            </li>
+          </Link>
+          <li className="px-5 py-3 text-lg border-l-4 border-transparent hover:bg-gray-800 cursor-pointer" onClick={handleLogout}>
+            Logout
+          </li>
+        </ul>
+      </div>
+    </nav>
   );
 }
 

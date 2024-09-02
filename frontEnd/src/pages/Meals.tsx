@@ -1,26 +1,16 @@
-// @ts-ignore
-import React, { useState,useEffect } from 'react';
+import { useEffect } from 'react';
 import MealCard from '../components/MealCard';
 import { mealType } from '../components/types/type';
 import { useMealsContext } from '../api/context api/meals'; // Adjust the import path as necessary
 import { motion } from 'framer-motion'; // Importing framer-motion for animations
-// @ts-ignore
-import axios from 'axios';
-
 
 const Meals = () => {
-  const { breakFast, dinner, snacks, lunch,calories,fetchCalories,carbohydrates,protein,fat,getMeals } = useMealsContext();
+  const { breakFast, dinner, snacks, lunch, calories, fetchCalories, carbohydrates, protein, fat, getMeals } = useMealsContext();
 
-useEffect(() => {
-
-fetchCalories();
-getMeals()
-  
-}, [])
-
-
- 
-
+  useEffect(() => {
+    fetchCalories();
+    getMeals();
+  }, [fetchCalories, getMeals]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -33,13 +23,6 @@ getMeals()
     },
   };
 
-useEffect(() => {
-  
-fetchCalories()
-  
-}, [])
-
-
   const cardVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
@@ -47,66 +30,64 @@ fetchCalories()
 
   return (
     <>
-    <div className='w-[100vw]'>
-      <h1 className='text-6xl ml-8 mt-12 font-inknut-antiqua font-heavy'>Today's Meal</h1>
-      <motion.div
-        id="meals"
-        className='flex gap-7 absolute top-[30%] left-[26%]'
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <motion.div variants={cardVariants}>
-          <MealCard meals={mealType.breakfast} foods={breakFast} />
+      <div className="w-[75vw] p-4 lg:p-8">
+        <h1 className="text-4xl pl-12 sm:text-5xl md:text-6xl lg:text-6xl font-inknut-antiqua font-heavy mb-8">
+          Today's Meal
+        </h1>
+        <motion.div
+          id="meals"
+          className="flex flex-wrap mt-[6vh] gap-4 pl-8 lg:px-0 lg:gap-6 lg:grid lg:grid-cols-4 lg:mb-8" // Added margin-bottom on large screens
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.div variants={cardVariants} className="w-full sm:w-1/2 md:w-1/4 lg:w-full">
+            <MealCard meals={mealType.breakfast} foods={breakFast} />
+          </motion.div>
+          <motion.div variants={cardVariants} className="w-full sm:w-1/2 md:w-1/4 lg:w-full">
+            <MealCard meals={mealType.lunch} foods={lunch} />
+          </motion.div>
+          <motion.div variants={cardVariants} className="w-full sm:w-1/2 md:w-1/4 lg:w-full">
+            <MealCard meals={mealType.snacks} foods={snacks} />
+          </motion.div>
+          <motion.div variants={cardVariants} className="w-full sm:w-1/2 md:w-1/4 lg:w-full">
+            <MealCard meals={mealType.dinner} foods={dinner} />
+          </motion.div>
         </motion.div>
-        <motion.div variants={cardVariants}>
-          <MealCard meals={mealType.lunch} foods={lunch} />
+      </div>
+
+      <div className="w-[75vw] p-4 lg:p-8 flex flex-col lg:flex-row gap-4 lg:gap-8 lg:justify-between lg:items-start"> {/* Added flex-row for large screens and gap between sections */}
+        <motion.div variants={cardVariants} className="flex flex-col space-y-4 w-full lg:w-1/3">
+          <div className="font-bold text-lg sm:text-xl pl-8">
+            <div className='flex'>
+            <p className="text-blue-800 mb-2">Calories consumed today:</p>
+            <p className="text-black">{(calories ?? 0).toFixed(0)}</p>
+            </div>
+          </div>
+          <div className="font-bold text-lg sm:text-xl pl-8">
+          <div className='flex w-[35vw]'>
+            <p className="text-blue-800 mb-2">Carbohydrates consumed today:</p>
+            <p className="text-black">{(carbohydrates ?? 0).toFixed(2)}</p>
+            </div>
+
+          </div>
         </motion.div>
-        <motion.div variants={cardVariants}>
-          <MealCard meals={mealType.snacks} foods={snacks} />
+
+        <motion.div variants={cardVariants} className="flex flex-col space-y-4 w-full lg:w-1/3">
+          <div className="font-bold text-lg sm:text-xl pl-8">
+          <div className='flex '>
+            <p className="text-blue-800 mb-2">Protein consumed today:</p>
+            <p className="text-black">{(protein ?? 0).toFixed(2)}</p>
+            </div>
+          </div>
+          <div className="font-bold text-lg sm:text-xl pl-8">
+          <div className='flex '>
+            <p className="text-blue-800 mb-2">Fat consumed today:</p>
+            <p className="text-black">{(fat ?? 0).toFixed(2)}</p>
+            </div>
+          </div>
         </motion.div>
-        <motion.div variants={cardVariants}>
-          <MealCard meals={mealType.dinner} foods={dinner} />
-        </motion.div>
-      </motion.div>
-    </div>
-
-    <motion.div variants={cardVariants}>
-    <div className="font-bold text-xl flex flex-col absolute bottom-[5%] left-[25%] space-y-8 p-4 items-start">
-  <div className="flex flex-row items-start">
-    <p className="text-blue-800 mb-2">Calories consumed today:</p>
-{/*     <p className="text-black">{calories.toFixed(0)}</p> */}
-    <p className="text-black">{(calories ?? 0).toFixed(0)}</p>
-
-  </div>
-
-  <div className="flex flex-row items-start">
-    <p className="text-blue-800 mb-2">Carbohydrates consumed today:</p>
-{/*     <p className="text-black">{carbohydrates}g</p> */}
-    <p className="text-black">{(carbohydrates ?? 0).toFixed(2)}</p>
-
-  </div>
-</div>
-
-
-  <div className="font-bold text-xl flex flex-col absolute bottom-[5%] left-[75%] space-y-8 p-4 items-start">
-  <div className="flex flex-row items-start">
-    <p className="text-blue-800 mb-2">Protein consumed today:</p>
-{/*     <p className="text-black">{protein}g</p> */}
-    <p className="text-black">{(protein ?? 0).toFixed(2)}</p>
-    
-  </div>
-
-  <div className="flex flex-row items-start">
-    <p className="text-blue-800 mb-2">Fat consumed today:</p>
-{/*     <p className="text-black">{fat}g</p> */}
-    <p className="text-black">{(fat ?? 0).toFixed(2)}</p>
-    
-  </div>
-</div>
-
-</motion.div>
-
+      </div>
     </>
   );
 }

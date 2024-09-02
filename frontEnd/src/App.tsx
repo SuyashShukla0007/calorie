@@ -70,19 +70,20 @@ const navigate=useNavigate()
           <div className='flex '>
           <Navbar/>
 
+          <div className="grid ml-[3vw] lg:ml-[10vh]  grid-cols-1 md:grid-cols-3 gap-4">
+  <div className="h-[30%] mt-[28vh] ">
+    <Bmi />
+  </div>
 
-          <div className='h-[30%] mt-[15%]  ml-[5%]'>
-          <Bmi/>
-          </div>
+  <div className="h-[30%] mt-[20vh] ">
+    <IdealWeight />
+  </div>
 
-          <div className='h-[30%] mt-[12%]  ml-[6%]'>
-            <IdealWeight/>
-          </div>
+  <div className="h-[30%] mt-[10vh] ">
+    <CalorieCalculator />
+  </div>
+</div>
 
-          <div className='h-[30%] mt-[4%] ml-[6%]'>
-          <CalorieCalculator/>
-          </div>
-          
           </div>
         }/>
     </Routes>

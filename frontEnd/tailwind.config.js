@@ -19,6 +19,7 @@ export default {
         'green':'#508D4E',
         'dark-green':'#1A5319'
       },
+      
     },
     
 

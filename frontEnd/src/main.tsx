@@ -6,11 +6,11 @@ import { MealsProvider } from './api/context api/meals.tsx'
 import { BrowserRouter } from 'react-router-dom'
 ReactDOM.createRoot(document.getElementById('root')!).render(
   
-  <React.StrictMode>
+
     <MealsProvider>
     <BrowserRouter>
     <App />
     </BrowserRouter>
-    </MealsProvider>
-  </React.StrictMode>,
+    </MealsProvider>,
+  
 )

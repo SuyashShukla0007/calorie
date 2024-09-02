@@ -33,9 +33,9 @@ const BarChart = () => {
  
 
   return (
-    <div className="absolute left-[4vw] h-[40vh] w-[40vw] rounded-xl top-[98vh] bg-black">
+    <div className="absolute left-[4vw] h-[40vh] w-[40vw] rounded-xl top-[94vh] bg-black">
       <Line
-        className="h-96 w-[40vw]"
+        className="h-60 xl:h-96 w-[40vw]"
         data={{
           labels: dataset.map(data => data.date.substring(5)),
           datasets: [

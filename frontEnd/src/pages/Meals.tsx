@@ -30,6 +30,9 @@ const Meals = () => {
 
   return (
     <>
+
+   {!breakFast && <Loading/>}
+      
       <div className="w-[75vw] p-4 lg:p-8">
         <h1 className="text-4xl pl-12 sm:text-5xl md:text-6xl lg:text-6xl font-inknut-antiqua font-heavy mb-8">
           Today's Meal

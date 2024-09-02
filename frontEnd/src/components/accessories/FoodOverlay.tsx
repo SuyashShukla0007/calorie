@@ -96,7 +96,7 @@ const FoodEntryOverlay: React.FC<prop> = (props) => {
 
   return (
     <div className='fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center z-50'>
-      <div className='w-[30vw] h-[50vh] bg-white p-4 rounded shadow-lg'>
+      <div className='lg:w-[30vw] lg:h-[50vh] bg-white p-4 rounded shadow-lg'>
         <h1 className='text-center text-4xl font-bold mb-6'>{props.mealType}</h1>
 
         <div className='mb-4'>

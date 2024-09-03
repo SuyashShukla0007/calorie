@@ -46,7 +46,7 @@ const Calorie: React.FC = () => {
       const totalProtein = addElements(dataset?.map(item => item.totalProtein));
       const totalCarb = addElements(dataset?.map(item => item.totalCarbohydrates));
       const totalFat = addElements(dataset?.map(item => item.totalFat));
-      const totalCalories = addElements(dataset>.map(item => item.totalCalories));
+      const totalCalories = addElements(dataset?.map(item => item.totalCalories));
 
       setProtein(parseFloat((totalProtein / dataset?.length).toFixed(2)));
       setCalorie(parseFloat((totalCalories / dataset?.length).toFixed(0)));

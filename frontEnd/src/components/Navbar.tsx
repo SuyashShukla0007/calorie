@@ -45,7 +45,7 @@ const Navbar: React.FC = () => {
         {/* Hamburger Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`text-black focus:outline-none absolute top-4 left-5 ${!isOpen?'moveup':''}`}
+          className={`text-black focus:outline-none z-50 absolute top-4 left-5 ${!isOpen?'moveup':''}`}
         >
           <svg
             className="w-6 h-6"

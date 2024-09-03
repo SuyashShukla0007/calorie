@@ -43,15 +43,15 @@ const Calorie: React.FC = () => {
 
   const calAverage = () => {
     if (dataset.length > 0) {
-      const totalProtein = addElements(dataset.map(item => item.totalProtein));
-      const totalCarb = addElements(dataset.map(item => item.totalCarbohydrates));
-      const totalFat = addElements(dataset.map(item => item.totalFat));
-      const totalCalories = addElements(dataset.map(item => item.totalCalories));
+      const totalProtein = addElements(dataset?.map(item => item.totalProtein));
+      const totalCarb = addElements(dataset?.map(item => item.totalCarbohydrates));
+      const totalFat = addElements(dataset?.map(item => item.totalFat));
+      const totalCalories = addElements(dataset>.map(item => item.totalCalories));
 
-      setProtein(parseFloat((totalProtein / dataset.length).toFixed(2)));
-      setCalorie(parseFloat((totalCalories / dataset.length).toFixed(0)));
-      setCarb(parseFloat((totalCarb / dataset.length).toFixed(2)));
-      setFat(parseFloat((totalFat / dataset.length).toFixed(2)));
+      setProtein(parseFloat((totalProtein / dataset?.length).toFixed(2)));
+      setCalorie(parseFloat((totalCalories / dataset?.length).toFixed(0)));
+      setCarb(parseFloat((totalCarb / dataset?.length).toFixed(2)));
+      setFat(parseFloat((totalFat / dataset?.length).toFixed(2)));
     }
   };
 

@@ -62,7 +62,7 @@ const Navbar: React.FC = () => {
             />
           </svg>
         </button>
-        <nav className={`bg-gray-900 text-white  lg:w-[24vw] min-h-screen flex flex-col ${isOpen ? 'lg:flex' : 'hidden'}`}>
+        <nav className={`bg-gray-900 text-white  lg:w-[24vw] min-h-screen lg:block flex flex-col ${isOpen ? 'lg:flex' : 'hidden'}`}>
         {/* Logo and Hamburger Menu */}
 
         

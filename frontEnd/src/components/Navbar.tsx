@@ -3,7 +3,6 @@ import img from '../assets/logo.avif'; // Ensure this path is correct
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useMealsContext } from '../api/context api/meals'; // Import the custom hook
-
 const Navbar: React.FC = () => {
   const { getMeals, fetchCalories } = useMealsContext();
   const [path, setPath] = useState<string>('');
@@ -42,16 +41,11 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className={`bg-gray-900 text-white lg:w-[24vw] min-h-screen flex flex-col ${!isOpen ? 'lg:flex' : ''}`}>
-      {/* Logo and Hamburger Menu */}
-     <div className="top-0  sticky z-50 bg-gray-900 shadow-md w-full p-4 flex items-center justify-between lg:hidden">
-        <div className="h-[150px] flex items-center">
-          <img src={img} alt="Logo" className="h-[100px] object-contain" />
-        </div>
+    <>
         {/* Hamburger Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="text-white focus:outline-none"
+          className={`text-black focus:outline-none absolute top-4 left-5 ${!isOpen?'moveup':''}`}
         >
           <svg
             className="w-6 h-6"
@@ -68,6 +62,15 @@ const Navbar: React.FC = () => {
             />
           </svg>
         </button>
+        <nav className={`bg-gray-900 text-white  lg:w-[24vw] min-h-screen flex flex-col ${isOpen ? 'lg:flex' : 'hidden'}`}>
+        {/* Logo and Hamburger Menu */}
+
+        
+
+        <div className="top-0  xl:top-0 z-50 w-[50vw] bg-gray-900 shadow-md  p-4 flex items-center justify-between lg:hidden">
+          <div className="h-[150px] flex items-center">
+            <img src={img} alt="Logo" className="h-[100px] object-contain" />
+          </div>
       </div>
 
       {/* Mobile Menu Links */}
@@ -134,6 +137,7 @@ const Navbar: React.FC = () => {
         </ul>
       </div>
     </nav>
+    </>
   );
 };
 

@@ -42,7 +42,7 @@ const Calorie: React.FC = () => {
     arr.reduce((sum, element) => sum + element, 0);
 
   const calAverage = () => {
-    if (dataset.length > 0) {
+    if (dataset?.length > 0) {
       const totalProtein = addElements(dataset?.map(item => item.totalProtein));
       const totalCarb = addElements(dataset?.map(item => item.totalCarbohydrates));
       const totalFat = addElements(dataset?.map(item => item.totalFat));

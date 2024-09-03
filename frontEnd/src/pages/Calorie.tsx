@@ -89,9 +89,12 @@ const Calorie: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative w-full lg:w-[75vw] p-4 lg:p-8 flex flex-col gap-4 lg:gap-8 overflow-auto lg:overflow-visible">
+    <>
+
+      {loading && <Loading />} 
+      <div className="relative w-full lg:w-[75vw] p-4 lg:p-8 flex flex-col gap-4 lg:gap-8 overflow-auto lg:overflow-visible">
       
-      {loading && <Loading />} {/* Show loading state */}
+      {/* Show loading state */}
 
       {!loading && userData && avgCalorie > 0 && avgProtein > 0 && avgCarb > 0 && avgFat > 0 && (
            <div className="flex flex-col mt-[5vh] lg:flex-row lg:flex-wrap gap-4 lg:gap-8 w-full">
@@ -130,6 +133,8 @@ const Calorie: React.FC = () => {
         </div>
       )}
     </div>
+      </>
+
   );
 };
 

@@ -81,7 +81,7 @@ const Calorie: React.FC = () => {
       } finally {
         setTimeout(() => {
           setLoading(false);
-        }, 3000); // Delays loading state by 3 seconds
+        }, 1500); // Delays loading state by 3 seconds
       }
     };
 

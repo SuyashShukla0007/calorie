@@ -5,6 +5,7 @@ import DoughnutChart from '../components/Chart/Doughnut';
 import { motion } from 'framer-motion';
 import Loading from '../components/accessories/Loading';
 import { useMealsContext } from '../api/context api/meals';
+
 interface User {
   firstname: string;
   lastname: string;
@@ -12,6 +13,7 @@ interface User {
   height: number;
   weight: number;
 }
+
 interface Data {
   totalCalories: number;
   totalProtein: number;
@@ -26,7 +28,7 @@ const Calorie: React.FC = () => {
     visible: { opacity: 1, y: 0 },
   };
 
-  const {fetchCalories}=useMealsContext()
+  const { fetchCalories } = useMealsContext();
 
   const [userData, setUserData] = useState<User | null>(null);
   const [avgProtein, setProtein] = useState(0);
@@ -34,6 +36,7 @@ const Calorie: React.FC = () => {
   const [avgFat, setFat] = useState(0);
   const [avgCarb, setCarb] = useState(0);
   const [dataset, setData] = useState<Data[]>([]);
+  const [loading, setLoading] = useState(true);
 
   const addElements = (arr: number[]): number =>
     arr.reduce((sum, element) => sum + element, 0);
@@ -52,7 +55,6 @@ const Calorie: React.FC = () => {
     }
   };
 
-  
   useEffect(() => {
     const fetch = async () => {
       const fetchedData = await fetchCalories();
@@ -76,6 +78,10 @@ const Calorie: React.FC = () => {
         setUserData(res.data.user);
       } catch (err) {
         console.error("error", err);
+      } finally {
+        setTimeout(() => {
+          setLoading(false);
+        }, 3000); // Delays loading state by 3 seconds
       }
     };
 
@@ -85,9 +91,9 @@ const Calorie: React.FC = () => {
   return (
     <div className="relative w-full lg:w-[75vw] p-4 lg:p-8 flex flex-col gap-4 lg:gap-8 overflow-auto lg:overflow-visible">
       
-      {!userData && <Loading/>}
+      {loading && <Loading />} {/* Show loading state */}
 
-      {userData && avgCalorie > 0 && avgProtein > 0 && avgCarb > 0 && avgFat > 0 && (
+      {!loading && userData && avgCalorie > 0 && avgProtein > 0 && avgCarb > 0 && avgFat > 0 && (
         <div className="flex flex-col lg:flex-row lg:flex-wrap gap-4 lg:gap-8 w-full">
           
           {/* Avg Data on the left upper side for lg screens */}
@@ -120,9 +126,7 @@ const Calorie: React.FC = () => {
           </motion.div>
 
           {/* Bar Chart on the bottom middle for lg screens */}
-          
-            <BarChart />
-{/*           </motion.div> */}
+          <BarChart />
         </div>
       )}
     </div>

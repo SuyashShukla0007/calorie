@@ -88,18 +88,14 @@ const Calorie: React.FC = () => {
     fetchData();
   }, []);
 
-  return (
-    <>
-
-      {loading && <Loading />} 
+ return (
+  <>
+    {loading && <Loading />}
+    {!loading && userData && (
       <div className="relative w-full lg:w-[75vw] p-4 lg:p-8 flex flex-col gap-4 lg:gap-8 overflow-auto lg:overflow-visible">
-      
-      {/* Show loading state */}
-
-      {!loading && userData && avgCalorie > 0 && avgProtein > 0 && avgCarb > 0 && avgFat > 0 && (
-           <div className="flex flex-col mt-[5vh] lg:flex-row lg:flex-wrap gap-4 lg:gap-8 w-full">
+        <div className="flex flex-col mt-[5vh] lg:flex-row lg:flex-wrap gap-4 lg:gap-8 w-full">
           
-          {/* Avg Data on the left upper side for lg screens */}
+          {/* User Information Card */}
           <motion.div
             variants={cardVariants}
             initial="hidden"
@@ -108,9 +104,9 @@ const Calorie: React.FC = () => {
           >
             <h2 className="text-2xl font-bold mb-4">User Information</h2>
             <ul className="space-y-2">
-              <li><strong>Name:</strong> {userData?.firstname}</li>
-              <li><strong>Weight:</strong> {userData?.weight}</li>
-              <li><strong>Height:</strong> {userData?.height}</li>
+              <li><strong>Name:</strong> {userData.firstname}</li>
+              <li><strong>Weight:</strong> {userData.weight}</li>
+              <li><strong>Height:</strong> {userData.height}</li>
               <li><strong>Avg Calorie Intake:</strong> {avgCalorie} Cal</li>
               <li><strong>Avg Protein Intake:</strong> {avgProtein}g</li>
               <li><strong>Avg Carbohydrate Intake:</strong> {avgCarb}g</li>
@@ -119,23 +115,25 @@ const Calorie: React.FC = () => {
           </motion.div>
 
           {/* Doughnut Chart on the right upper side for lg screens */}
-          <motion.div
-            variants={cardVariants}
-            initial="hidden"
-            animate="visible"
-            className="w-full lg:w-[50%] xl:w-[45%] p-4 bg-black rounded-3xl text-white lg:h-[35vh] xl:h-[40vh] mb-4"
-          >
-            <DoughnutChart />
-          </motion.div>
+          {avgCalorie > 0 && avgProtein > 0 && avgCarb > 0 && avgFat > 0 && (
+            <motion.div
+              variants={cardVariants}
+              initial="hidden"
+              animate="visible"
+              className="w-full lg:w-[50%] xl:w-[45%] p-4 bg-black rounded-3xl text-white lg:h-[35vh] xl:h-[40vh] mb-4"
+            >
+              <DoughnutChart />
+            </motion.div>
+          )}
 
           {/* Bar Chart on the bottom middle for lg screens */}
-          <BarChart />
+          {avgCalorie > 0 && avgProtein > 0 && avgCarb > 0 && avgFat > 0 && <BarChart />}
         </div>
-      )}
-    </div>
-      </>
+      </div>
+    )}
+  </>
+);
 
-  );
 };
 
 export default Calorie;

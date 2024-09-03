@@ -24,10 +24,10 @@ const News = () => {
   return (
     <div>
       
-      <div id="newsHead" className="bg-gray-900 mt-[5vh] ml-[5vw]  text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl py-4 px-4 sm:px-8 md:px-12  lg:px-16 mx-4 mt-4 rounded-3xl font-serif">
+      <div id="newsHead" className="bg-gray-900 mt-[5vh] ml-[15vw]  text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl py-4 px-4 sm:px-8 md:px-12  lg:px-16 mx-4 mt-4 rounded-3xl font-serif">
         HEALTH NEWS
       </div>
-      <div className="grid grid-cols-1 lg:ml-[2vw] sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4 px-4">
+      <div className="grid grid-cols-1 lg:ml-[2vw] ml-[15vw] sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4 px-4">
         {articles && articles.length > 0 ? (
           articles.map((article, index) => (
             <Card

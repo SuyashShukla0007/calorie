@@ -21,6 +21,7 @@ import IdealWeight from './components/IdealWeight';
 import Login from './pages/Login';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import Landing from './pages/Landing';
 
 const App = () => {
 
@@ -62,7 +63,7 @@ const navigate=useNavigate()
           </div>
           </div>
           }></Route>
-
+  <Route path='/home' element={<Landing/>}></Route>
 <Route path='/login' element={<Login/>}></Route>
         <Route path='/' element={<Sign/>}></Route>
 

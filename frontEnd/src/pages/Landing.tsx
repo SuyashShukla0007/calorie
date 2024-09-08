@@ -1,4 +1,5 @@
 // import React from 'react';
+import img from '../assets/wallpaperflare.com_wallpaper.jpg';
 
 const Landing = () => {
   return (
@@ -39,7 +40,7 @@ const Landing = () => {
             </div>
             <div className="hero-image md:w-1/2">
               <img
-                src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                src={img}
                 alt="Two men cooking in the kitchen"
                 className="w-full h-auto rounded-xl shadow-lg transform transition-transform duration-500 hover:scale-110"
               />

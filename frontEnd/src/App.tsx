@@ -63,9 +63,9 @@ const navigate=useNavigate()
           </div>
           </div>
           }></Route>
-  <Route path='/home' element={<Landing/>}></Route>
+  <Route path='/' element={<Landing/>}></Route>
 <Route path='/login' element={<Login/>}></Route>
-        <Route path='/' element={<Sign/>}></Route>
+        <Route path='/sign' element={<Sign/>}></Route>
 
         <Route path='/tools' element={
           <div className='flex '>

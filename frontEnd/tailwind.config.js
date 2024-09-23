@@ -16,7 +16,7 @@ export default {
       colors: {
         'lightest-green': '#D6EFD8',
         'light-green':'#80AF81',
-        'green':'#508D4E',
+        'greener':'#508D4E',
         'dark-green':'#1A5319'
       },
       

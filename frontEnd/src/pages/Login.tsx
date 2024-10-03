@@ -7,7 +7,12 @@ const Login = () => {
     const navigate = useNavigate();
 
     useEffect(()=>{
-        alert(("use ser@gmail.com and 1 as password to login "));
+        const timer = setTimeout(() => {
+       alert(("use ser@gmail.com and 1 as password to login "));
+    }, 2000); 
+
+    return () => clearTimeout(timer);
+        
     },[])
 
     const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {

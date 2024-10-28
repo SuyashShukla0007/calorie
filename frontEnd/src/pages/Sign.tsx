@@ -117,6 +117,42 @@ const Sign = () => {
                                     <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
                                 </svg>
                             </button>
+                            
+                            <button
+                                className="flex items-center justify-between w-full px-6 py-3 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50"
+                                onClick={async()=>{
+                                    try {
+                                        const response = await fetch('https://backend-ten-neon-56.vercel.app/api/login', {
+                                            method: 'POST',
+                                            headers: {
+                                                'Content-Type': 'application/json'
+                                            },
+                                            credentials:'include',
+                                            body: JSON.stringify({ email:'ser@gmail.com', password:'1' }),
+                                        });
+                                        const data=await response.json();
+                            
+                                        
+                                        if (response.ok) {
+                                            localStorage.setItem('auth',data.token)
+                                            console.log('User logged in successfully!');
+                                            navigate('/meals'); // Redirect after successful login
+                                        } else {
+                                            console.error('Failed to log in');
+                                            // Handle error case, e.g., show error message to user
+                                        }
+                                    } catch (error) {
+                                        console.error('Error during login:', error);
+                                        // Handle network or other errors
+                                    }
+                                }}
+                            >
+                                <span>Guest login</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 rtl:-scale-x-100" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                                </svg>
+                            </button>
+
                         </form>
                     </div>
                 </div>

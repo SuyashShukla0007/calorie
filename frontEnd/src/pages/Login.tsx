@@ -6,14 +6,14 @@ const Login = () => {
     const [password, setPassword] = useState<string>('');
     const navigate = useNavigate();
 
-    useEffect(()=>{
-        const timer = setTimeout(() => {
-       alert(("use ser@gmail.com and 1 as password to login "));
-    }, 2000); 
+    // useEffect(()=>{
+    //     const timer = setTimeout(() => {
+    //    alert(("use ser@gmail.com and 1 as password to login "));
+    // }, 2000); 
 
-    return () => clearTimeout(timer);
+    // return () => clearTimeout(timer);
         
-    },[])
+    // },[])login
 
     const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault(); // Prevent default form submission behavior
@@ -77,8 +77,44 @@ const Login = () => {
                     >
                         Login
                     </button>
+                   
                 </form>
-                <p className="mt-4 text-sm text-gray-600 dark:text-gray-400">
+               
+              
+                {/* <p className='my-3 text-sm text-gray-600 dark:text-gray-400'>Don't want to create a account</p>
+                <button
+                    onClick={async()=>{
+
+                        try {
+                            const response = await fetch('https://backend-ten-neon-56.vercel.app/api/login', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                credentials:'include',
+                                body: JSON.stringify({ email:'ser@gmail.com', password:'1' }),
+                            });
+                            const data=await response.json();
+                
+                            
+                            if (response.ok) {
+                                localStorage.setItem('auth',data.token)
+                                console.log('User logged in successfully!');
+                                navigate('/meals'); // Redirect after successful login
+                            } else {
+                                console.error('Failed to log in');
+                                // Handle error case, e.g., show error message to user
+                            }
+                        } catch (error) {
+                            console.error('Error during login:', error);
+                            // Handle network or other errors
+                        }
+                    }}
+                        className="w-[1/3] my-2 px-4 py-3 text-white bg-blue-500 rounded-lg shadow-sm hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors duration-300"
+                    >
+                        Guest login
+                    </button> */}
+                    <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
                     Don't have an account? <a href="/sign" className="text-blue-500 hover:text-blue-400">Sign Up</a>
                 </p>
             </div>

@@ -3,7 +3,6 @@ const User = require('../model/users');
 const express = require('express');
 
 const app = express();
-const secret = 'COralie'; // Replace with your actual secret key
 
 // Create new user
 async function postUser(req, res) {
@@ -33,7 +32,7 @@ async function postUser(req, res) {
     await newUser.save();
 
     // Generate JWT token
-    const token = jwt.sign({ email, firstname, lastname }, secret, { expiresIn: '3d' });
+    const token = jwt.sign({ email, firstname, lastname }, process.env.secret, { expiresIn: '3d' });
 
     // Respond with a success message and include token in the Authorization header
     res.setHeader('Authorization', `Bearer ${token}`);
@@ -49,8 +48,7 @@ async function postUser(req, res) {
 // Logout function
 const logout = (req, res) => {
   try {
-    // Since tokens are handled in headers, there's no direct server-side "clear" operation.
-    // However, we can respond with a message to clear the token on the client side.
+   
     res.status(200).send('Logout successful. Please clear your token from storage.');
   } catch (error) {
     console.error('Error during logout:', error);
@@ -76,7 +74,7 @@ const login = async (req, res) => {
     }
 
     // Generate JWT token
-    const token = jwt.sign({ email: user.email, firstname: user.firstname, lastname: user.lastname }, secret, { expiresIn: '3d' });
+    const token = jwt.sign({ email: user.email, firstname: user.firstname, lastname: user.lastname }, process.env.secret, { expiresIn: '3d' });
 
     // Respond with success message and token
     res.setHeader('Authorization', `Bearer ${token}`);
@@ -104,7 +102,7 @@ async function getUser(req, res) {
     }
 
     // Verify token
-    const decoded = jwt.verify(token, secret);
+    const decoded = jwt.verify(token, process.env.secret);
 
     // Find user based on decoded token
     const user = await User.findOne({ email: decoded.email });

@@ -1,14 +1,17 @@
 const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+const dotenv=require('dotenv')
 const connect = require('./database/connection');
 const  userRouter  = require('./routes/user'); // Assuming userRouter is exported from routes/index.js
 const connectDB =require('./database/connection');
 const foodRouter=require('./routes/food')
 const app = express();
 const port = 5000;
-const secret = 'COralie'; // Replace with your actual secret key
 
+
+
+dotenv.config()
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

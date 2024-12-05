@@ -2,7 +2,6 @@ const { default: mongoose } = require('mongoose');
 const jwt = require('jsonwebtoken');
 const User = require('../model/users');
 
-const secret = 'COralie';
 
 const addTodayDiet = async (req, res) => {
   try {
@@ -13,7 +12,7 @@ const addTodayDiet = async (req, res) => {
     }
 
     const token = authHeader.split(' ')[1];
-    const userData = jwt.verify(token, secret);
+    const userData = jwt.verify(token, process.env.secret);
     const user = await User.findOne({ email: userData.email });
 
     if (!user) {
@@ -62,7 +61,7 @@ const getCalories = async (req, res) => {
     }
 
     const token = authHeader.split(' ')[1];
-    const userData = jwt.verify(token, secret);
+    const userData = jwt.verify(token, process.env.secret);
     const user = await User.findOne({ email: userData.email });
 
     if (!user) {
@@ -178,7 +177,7 @@ const addFood = async (req, res) => {
     }
 
     const token = authHeader.split(' ')[1];
-    const userData = jwt.verify(token, secret);
+    const userData = jwt.verify(token, process.env.secret);
     const user = await User.findOne({ email: userData.email });
 
     if (!user) {
@@ -258,7 +257,7 @@ const getFood = async (req, res) => {
     }
 
     const token = authHeader.split(' ')[1];
-    const userData = jwt.verify(token, secret);
+    const userData = jwt.verify(token, process.env.secret);
     const user = await User.findOne({ email: userData.email });
 
     if (!user) {

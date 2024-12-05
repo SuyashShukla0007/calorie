@@ -1,27 +1,34 @@
 // @ts-ignore
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const IdealWeight = () => {
   const [height, setHeight] = useState<number>();
-  const [gender, setGender] = useState<'male' | 'female'>('male');
-  const [lifestyle, setLifestyle] = useState<'sedentary' | 'active' | 'very active'>('sedentary');
+  const [gender, setGender] = useState<"male" | "female">("male");
+  const [lifestyle, setLifestyle] = useState<
+    "sedentary" | "active" | "very active"
+  >("sedentary");
   const [idealWeight, setIdealWeight] = useState<number>();
-  const [tips, setTips] = useState<string>('');
+  const [tips, setTips] = useState<string>("");
 
-  const getBaseWeight = () => (gender === 'male' ? 50 : 45.5);
-  const getLifestyleFactor = () => (lifestyle === 'sedentary' ? 1.0 : lifestyle === 'active' ? 1.1 : 1.2);
+  const getBaseWeight = () => (gender === "male" ? 50 : 45.5);
+  const getLifestyleFactor = () =>
+    lifestyle === "sedentary" ? 1.0 : lifestyle === "active" ? 1.1 : 1.2;
 
   const calculateIdealWeight = async () => {
     if (height) {
-      const weight = getBaseWeight() + 0.9 * (height - 152.4) * getLifestyleFactor();
+      const weight =
+        getBaseWeight() + 0.9 * (height - 152.4) * getLifestyleFactor();
       setIdealWeight(weight);
 
       // Fetch health tips based on weight
-      const response = await fetch('  https://backend-ten-neon-56.vercel.app/api/health-tips', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ weight })
-      });
+      const response = await fetch(
+        "  https://calorierose.vercel.app/api/health-tips",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ weight }),
+        }
+      );
 
       const data = await response.json();
       setTips(data.tips);
@@ -30,25 +37,35 @@ const IdealWeight = () => {
 
   return (
     <div className="max-w-md mx-auto mt-10 p-5 border rounded shadow-lg bg-white">
-      <h1 className="text-2xl font-bold text-center mb-4 text-indigo-600">Ideal Weight Calculator</h1>
+      <h1 className="text-2xl font-bold text-center mb-4 text-indigo-600">
+        Ideal Weight Calculator
+      </h1>
       <div className="mb-4">
-        <label htmlFor="height" className="block text-sm font-medium text-gray-700">
+        <label
+          htmlFor="height"
+          className="block text-sm font-medium text-gray-700"
+        >
           Height (cm)
         </label>
         <input
           type="number"
           id="height"
           className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-          onChange={e => setHeight(Number(e.target.value))}
+          onChange={(e) => setHeight(Number(e.target.value))}
           value={height}
         />
       </div>
       <div className="mb-4">
-        <label htmlFor="gender" className="block text-sm font-medium text-gray-700">Gender</label>
+        <label
+          htmlFor="gender"
+          className="block text-sm font-medium text-gray-700"
+        >
+          Gender
+        </label>
         <select
           id="gender"
           className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-          onChange={e => setGender(e.target.value as 'male' | 'female')}
+          onChange={(e) => setGender(e.target.value as "male" | "female")}
           value={gender}
         >
           <option value="male">Male</option>
@@ -56,11 +73,20 @@ const IdealWeight = () => {
         </select>
       </div>
       <div className="mb-4">
-        <label htmlFor="lifestyle" className="block text-sm font-medium text-gray-700">Lifestyle</label>
+        <label
+          htmlFor="lifestyle"
+          className="block text-sm font-medium text-gray-700"
+        >
+          Lifestyle
+        </label>
         <select
           id="lifestyle"
           className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-          onChange={e => setLifestyle(e.target.value as 'sedentary' | 'active' | 'very active')}
+          onChange={(e) =>
+            setLifestyle(
+              e.target.value as "sedentary" | "active" | "very active"
+            )
+          }
           value={lifestyle}
         >
           <option value="sedentary">Sedentary</option>

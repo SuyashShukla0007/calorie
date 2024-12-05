@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import BarChart from '../components/Chart/Bar';
-import DoughnutChart from '../components/Chart/Doughnut';
-import { motion } from 'framer-motion';
-import Loading from '../components/accessories/Loading';
-import { useMealsContext } from '../api/context api/meals';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import BarChart from "../components/Chart/Bar";
+import DoughnutChart from "../components/Chart/Doughnut";
+import { motion } from "framer-motion";
+import Loading from "../components/accessories/Loading";
+import { useMealsContext } from "../api/context api/meals";
 
 interface User {
   firstname: string;
@@ -43,10 +43,16 @@ const Calorie: React.FC = () => {
 
   const calAverage = () => {
     if (dataset?.length > 0) {
-      const totalProtein = addElements(dataset?.map(item => item.totalProtein));
-      const totalCarb = addElements(dataset?.map(item => item.totalCarbohydrates));
-      const totalFat = addElements(dataset?.map(item => item.totalFat));
-      const totalCalories = addElements(dataset?.map(item => item.totalCalories));
+      const totalProtein = addElements(
+        dataset?.map((item) => item.totalProtein)
+      );
+      const totalCarb = addElements(
+        dataset?.map((item) => item.totalCarbohydrates)
+      );
+      const totalFat = addElements(dataset?.map((item) => item.totalFat));
+      const totalCalories = addElements(
+        dataset?.map((item) => item.totalCalories)
+      );
 
       setProtein(parseFloat((totalProtein / dataset?.length).toFixed(2)));
       setCalorie(parseFloat((totalCalories / dataset?.length).toFixed(0)));
@@ -70,9 +76,9 @@ const Calorie: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const token = localStorage.getItem('auth');
-        const res = await axios.get('https://backend-ten-neon-56.vercel.app/api/user', {
-          headers: { 'Authorization': `Bearer ${token}` },
+        const token = localStorage.getItem("auth");
+        const res = await axios.get("https://calorierose.vercel.app/api/user", {
+          headers: { Authorization: `Bearer ${token}` },
           withCredentials: true,
         });
         setUserData(res.data.user);
@@ -88,52 +94,66 @@ const Calorie: React.FC = () => {
     fetchData();
   }, []);
 
- return (
-  <>
-    {loading && <Loading />}
-    {!loading && userData && (
-      <div className="relative w-full lg:w-[75vw] p-4 lg:p-8 flex flex-col gap-4 lg:gap-8 overflow-auto lg:overflow-visible">
-        <div className="flex flex-col mt-[5vh] lg:flex-row lg:flex-wrap gap-4 lg:gap-8 w-full">
-          
-          {/* User Information Card */}
-          <motion.div
-            variants={cardVariants}
-            initial="hidden"
-            animate="visible"
-            className="w-full lg:w-[45%] xl:w-[40%] p-4 bg-black rounded-3xl text-white mb-4"
-          >
-            <h2 className="text-2xl font-bold mb-4">User Information</h2>
-            <ul className="space-y-2">
-              <li><strong>Name:</strong> {userData.firstname}</li>
-              <li><strong>Weight:</strong> {userData.weight}</li>
-              <li><strong>Height:</strong> {userData.height}</li>
-              <li><strong>Avg Calorie Intake:</strong> {avgCalorie} Cal</li>
-              <li><strong>Avg Protein Intake:</strong> {avgProtein}g</li>
-              <li><strong>Avg Carbohydrate Intake:</strong> {avgCarb}g</li>
-              <li><strong>Avg Fat Intake:</strong> {avgFat}g</li>
-            </ul>
-          </motion.div>
-
-          {/* Doughnut Chart on the right upper side for lg screens */}
-          {avgCalorie > 0 && avgProtein > 0 && avgCarb > 0 && avgFat > 0 && (
+  return (
+    <>
+      {loading && <Loading />}
+      {!loading && userData && (
+        <div className="relative w-full lg:w-[75vw] p-4 lg:p-8 flex flex-col gap-4 lg:gap-8 overflow-auto lg:overflow-visible">
+          <div className="flex flex-col mt-[5vh] lg:flex-row lg:flex-wrap gap-4 lg:gap-8 w-full">
+            {/* User Information Card */}
             <motion.div
               variants={cardVariants}
               initial="hidden"
               animate="visible"
-              className="w-full lg:w-[50%] xl:w-[45%] p-4 bg-black rounded-3xl text-white lg:h-[35vh] xl:h-[40vh] mb-4"
+              className="w-full lg:w-[45%] xl:w-[40%] p-4 bg-black rounded-3xl text-white mb-4"
             >
-              <DoughnutChart />
+              <h2 className="text-2xl font-bold mb-4">User Information</h2>
+              <ul className="space-y-2">
+                <li>
+                  <strong>Name:</strong> {userData.firstname}
+                </li>
+                <li>
+                  <strong>Weight:</strong> {userData.weight}
+                </li>
+                <li>
+                  <strong>Height:</strong> {userData.height}
+                </li>
+                <li>
+                  <strong>Avg Calorie Intake:</strong> {avgCalorie} Cal
+                </li>
+                <li>
+                  <strong>Avg Protein Intake:</strong> {avgProtein}g
+                </li>
+                <li>
+                  <strong>Avg Carbohydrate Intake:</strong> {avgCarb}g
+                </li>
+                <li>
+                  <strong>Avg Fat Intake:</strong> {avgFat}g
+                </li>
+              </ul>
             </motion.div>
-          )}
 
-          {/* Bar Chart on the bottom middle for lg screens */}
-          {avgCalorie > 0 && avgProtein > 0 && avgCarb > 0 && avgFat > 0 && <BarChart />}
+            {/* Doughnut Chart on the right upper side for lg screens */}
+            {avgCalorie > 0 && avgProtein > 0 && avgCarb > 0 && avgFat > 0 && (
+              <motion.div
+                variants={cardVariants}
+                initial="hidden"
+                animate="visible"
+                className="w-full lg:w-[50%] xl:w-[45%] p-4 bg-black rounded-3xl text-white lg:h-[35vh] xl:h-[40vh] mb-4"
+              >
+                <DoughnutChart />
+              </motion.div>
+            )}
+
+            {/* Bar Chart on the bottom middle for lg screens */}
+            {avgCalorie > 0 && avgProtein > 0 && avgCarb > 0 && avgFat > 0 && (
+              <BarChart />
+            )}
+          </div>
         </div>
-      </div>
-    )}
-  </>
-);
-
+      )}
+    </>
+  );
 };
 
 export default Calorie;

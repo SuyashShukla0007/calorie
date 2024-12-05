@@ -12,7 +12,7 @@ const addTodayDiet = async (req, res) => {
     }
 
     const token = authHeader.split(' ')[1];
-    const userData = jwt.verify(token, process.env.secret);
+    const userData = jwt.verify(token, process.env.JWT_SECRET);
     const user = await User.findOne({ email: userData.email });
 
     if (!user) {
@@ -61,7 +61,7 @@ const getCalories = async (req, res) => {
     }
 
     const token = authHeader.split(' ')[1];
-    const userData = jwt.verify(token, process.env.secret);
+    const userData = jwt.verify(token, process.env.JWT_SECRET);
     const user = await User.findOne({ email: userData.email });
 
     if (!user) {
@@ -177,7 +177,7 @@ const addFood = async (req, res) => {
     }
 
     const token = authHeader.split(' ')[1];
-    const userData = jwt.verify(token, process.env.secret);
+    const userData = jwt.verify(token, process.env.JWT_SECRET);
     const user = await User.findOne({ email: userData.email });
 
     if (!user) {
@@ -257,7 +257,7 @@ const getFood = async (req, res) => {
     }
 
     const token = authHeader.split(' ')[1];
-    const userData = jwt.verify(token, process.env.secret);
+    const userData = jwt.verify(token, process.env.JWT_SECRET);
     const user = await User.findOne({ email: userData.email });
 
     if (!user) {

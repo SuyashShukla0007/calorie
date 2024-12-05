@@ -32,7 +32,7 @@ async function postUser(req, res) {
     await newUser.save();
 
     // Generate JWT token
-    const token = jwt.sign({ email, firstname, lastname }, process.env.secret, { expiresIn: '3d' });
+    const token = jwt.sign({ email, firstname, lastname }, process.env.JWT_SECRET, { expiresIn: '3d' });
 
     // Respond with a success message and include token in the Authorization header
     res.setHeader('Authorization', `Bearer ${token}`);
@@ -73,8 +73,10 @@ const login = async (req, res) => {
       return res.status(401).json({ error: 'Invalid email or password' });
     }
 
+    console.log(process.env.JWT_SECRET)
+
     // Generate JWT token
-    const token = jwt.sign({ email: user.email, firstname: user.firstname, lastname: user.lastname }, process.env.secret, { expiresIn: '3d' });
+    const token = jwt.sign({ email: user.email, firstname: user.firstname, lastname: user.lastname }, process.env.JWT_SECRET, { expiresIn: '3d' });
 
     // Respond with success message and token
     res.setHeader('Authorization', `Bearer ${token}`);
@@ -102,7 +104,7 @@ async function getUser(req, res) {
     }
 
     // Verify token
-    const decoded = jwt.verify(token, process.env.secret);
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
     // Find user based on decoded token
     const user = await User.findOne({ email: decoded.email });
